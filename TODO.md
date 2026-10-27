@@ -150,8 +150,8 @@ No hidden word is stored in browser-side JavaScript during active gameplay.
 - [x] Test starting a new game after completing one.
 - [x] Test answer disclosure rules (no hidden word during active play).
 - [x] Add an automated browser test that checks the page updates after each guess.
-- [ ] Run the Flask app locally and play several games in a browser.
-- [ ] Inspect at least one REST API request and JSON response in Chrome Developer Tools.
+- [x] Run the Flask app locally and play several games in a browser.
+- [x] Inspect at least one REST API request and JSON response in Chrome Developer Tools.
 
 ### Completion Criteria
 
@@ -185,13 +185,13 @@ play in a browser using only the README.
 
 ### Tasks
 
-- [ ] Push the project to a GitHub repository.
-- [ ] Create a Render web service from the repository.
-- [ ] Confirm the build and start commands succeed in the Render logs.
-- [ ] Open the public HTTPS URL and confirm the web interface loads.
-- [ ] Confirm the REST API endpoints respond at the public URL.
-- [ ] Play a complete game through the deployed browser interface.
-- [ ] Add the deployed URL to the README.
+- [x] Push the project to a GitHub repository.
+- [x] Create a Render web service from the repository.
+- [x] Confirm the build and start commands succeed in the Render logs.
+- [x] Open the public HTTPS URL and confirm the web interface loads.
+- [x] Confirm the REST API endpoints respond at the public URL.
+- [x] Play a complete game through the deployed browser interface.
+- [x] Add the deployed URL to the README.
 
 ### Completion Criteria
 

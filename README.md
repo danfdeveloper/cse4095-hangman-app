@@ -4,7 +4,10 @@ A web-based Hangman game. A Flask server holds the hidden word and enforces
 every rule. The browser client is plain HTML, CSS, and JavaScript, and talks
 to the server only through a JSON REST API.
 
-**Live app:** _add your Render URL here after deploying_
+**Live app:** <https://cse4095-hangman-app.onrender.com/>
+
+The app runs on Render's free plan, so the first visit after a quiet period
+can take up to a minute while the server wakes up.
 
 This project implements the server and browser client from
 [`SPECIFICATION.md`](SPECIFICATION.md). Terminal clients, bots, evaluation,
