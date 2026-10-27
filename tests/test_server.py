@@ -1,17 +1,8 @@
 import tempfile
 import unittest
-from pathlib import Path
 
 from server import create_app
-from word_manager import WordManager
-
-
-def make_word_manager(directory, easy="cat", medium="rabbit", hard="rhythm"):
-    """A WordManager with one word per difficulty so tests know the answer."""
-    directory = Path(directory)
-    for name, word in [("easy", easy), ("medium", medium), ("hard", hard)]:
-        (directory / f"{name}.txt").write_text(word + "\n", encoding="utf-8")
-    return WordManager(directory)
+from tests.helpers import make_word_manager
 
 
 class ApiTestCase(unittest.TestCase):
