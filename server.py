@@ -1,8 +1,12 @@
 """Hangman REST server.
 
-Run with:
+Run locally with:
 
     python3 server.py [--host HOST] [--port PORT]
+
+or in production with:
+
+    gunicorn --bind 0.0.0.0:$PORT --workers 1 server:app
 
 All game logic lives in ``game.HangmanGame``; this module only stores games,
 validates HTTP input, and translates engine results and errors into JSON.
@@ -140,12 +144,17 @@ def create_app(word_manager=None):
     return app
 
 
+# Module-level app for production servers, e.g. ``gunicorn server:app``.
+# Games live in this process's memory, so run a single worker process.
+app = create_app()
+
+
 def main():
     parser = argparse.ArgumentParser(description="Run the Hangman REST server.")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=5000)
     args = parser.parse_args()
-    create_app().run(host=args.host, port=args.port)
+    app.run(host=args.host, port=args.port)
 
 
 if __name__ == "__main__":

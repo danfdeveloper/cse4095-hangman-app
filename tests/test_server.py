@@ -185,6 +185,18 @@ class TestFullGames(ApiTestCase):
             self.guess(game_id, letter)
         self.assert_error(self.guess(game_id, "z"), 409, "game_over")
 
+    def test_new_game_after_finishing_one(self):
+        finished = self.new_game()["game_id"]
+        for letter in "cat":
+            self.guess(finished, letter)
+        for difficulty in ("easy", "medium", "hard"):
+            with self.subTest(difficulty=difficulty):
+                body = self.new_game(difficulty)
+                self.assertNotEqual(body["game_id"], finished)
+                self.assertEqual(body["status"], "playing")
+                self.assertEqual(body["guessed_letters"], [])
+                self.assertEqual(body["remaining_guesses"], 6)
+
     def test_games_are_independent(self):
         first = self.new_game()["game_id"]
         second = self.new_game()["game_id"]
