@@ -210,6 +210,43 @@ class TestNoAnswerLeak(ApiTestCase):
         self.assertEqual(responses[-1].get_json()["status"], "playing")
 
 
+class TestBrowserClientFiles(ApiTestCase):
+    def test_index_page(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("text/html", response.content_type)
+        html = response.get_data(as_text=True)
+        for needle in ["/static/style.css", "/static/app.js", 'id="keyboard"', 'id="difficulty"']:
+            self.assertIn(needle, html)
+        response.close()
+
+    def test_static_assets(self):
+        for path, content_type in [
+            ("/static/app.js", "javascript"),
+            ("/static/style.css", "text/css"),
+        ]:
+            with self.subTest(path=path):
+                response = self.client.get(path)
+                self.assertEqual(response.status_code, 200)
+                self.assertIn(content_type, response.content_type)
+                response.close()
+
+    def test_browser_files_do_not_load_word_lists(self):
+        # The page must learn everything from the API, never from the word files.
+        for path in ["/", "/static/app.js", "/static/style.css"]:
+            with self.subTest(path=path):
+                response = self.client.get(path)
+                text = response.get_data(as_text=True).lower()
+                response.close()
+                self.assertNotIn("words/", text)
+                self.assertNotIn(".txt", text)
+
+    def test_word_lists_are_not_served(self):
+        for path in ["/words/easy.txt", "/static/../words/easy.txt"]:
+            with self.subTest(path=path):
+                self.assertEqual(self.client.get(path).status_code, 404)
+
+
 class TestHttpErrors(ApiTestCase):
     def test_unknown_route_returns_json(self):
         self.assert_error(self.client.get("/api/nothing"), 404, "not_found")

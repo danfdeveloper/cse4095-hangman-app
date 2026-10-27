@@ -128,23 +128,23 @@ The terminal client contains no Hangman game logic beyond presentation and input
 
 ### Tasks
 
-- [ ] Create `static/index.html`.
-- [ ] Create `static/style.css`.
-- [ ] Create `static/app.js`.
-- [ ] Add a difficulty selector.
-- [ ] Add a New Game button.
-- [ ] Display the masked word.
-- [ ] Display guessed letters.
-- [ ] Display incorrect letters.
-- [ ] Display remaining guesses.
-- [ ] Add an on-screen alphabet keyboard.
-- [ ] Disable already-guessed letters.
-- [ ] Use `fetch()` to communicate with the REST API.
-- [ ] Draw the Hangman state visually.
-- [ ] Update the drawing after incorrect guesses.
-- [ ] Display win and loss messages.
-- [ ] Provide a restart/new-game flow.
-- [ ] Make the interface usable on common desktop and mobile browser sizes.
+- [x] Create `static/index.html`.
+- [x] Create `static/style.css`.
+- [x] Create `static/app.js`.
+- [x] Add a difficulty selector.
+- [x] Add a New Game button.
+- [x] Display the masked word.
+- [x] Display guessed letters.
+- [x] Display incorrect letters.
+- [x] Display remaining guesses.
+- [x] Add an on-screen alphabet keyboard.
+- [x] Disable already-guessed letters.
+- [x] Use `fetch()` to communicate with the REST API.
+- [x] Draw the Hangman state visually.
+- [x] Update the drawing after incorrect guesses.
+- [x] Display win and loss messages.
+- [x] Provide a restart/new-game flow.
+- [x] Make the interface usable on common desktop and mobile browser sizes.
 
 ### Completion Criteria
 

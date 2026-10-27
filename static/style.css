@@ -1,0 +1,273 @@
+:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --text: #1f2328;
+  --muted: #5f6670;
+  --border: #d6d3cc;
+  --accent: #2f5fd0;
+  --accent-text: #ffffff;
+  --correct: #1f7a45;
+  --correct-bg: #dff3e6;
+  --wrong: #b3261e;
+  --wrong-bg: #fbe3e1;
+  --stroke: #1f2328;
+  --ghost: #e4e1da;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171a;
+    --surface: #1f2226;
+    --text: #e8e6e3;
+    --muted: #9aa0a8;
+    --border: #393d43;
+    --accent: #7aa2ff;
+    --accent-text: #0d1117;
+    --correct: #6fd39a;
+    --correct-bg: #1b3326;
+    --wrong: #ff8a80;
+    --wrong-bg: #3a1f1d;
+    --stroke: #e8e6e3;
+    --ghost: #2c3036;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+select,
+button {
+  font: inherit;
+  min-height: 44px;
+  border-radius: 8px;
+}
+
+select {
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+#new-game {
+  padding: 0 18px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#new-game.attention {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+button:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+@media (min-width: 640px) {
+  .board {
+    grid-template-columns: minmax(180px, 240px) 1fr;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.drawing {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.drawing line,
+.drawing circle {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.gallows line {
+  stroke: var(--stroke);
+}
+
+.figure .part {
+  stroke: var(--ghost);
+  transition: stroke 0.2s ease;
+}
+
+.figure .part.shown {
+  stroke: var(--wrong);
+}
+
+.info {
+  min-width: 0;
+}
+
+.pattern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  min-height: 1.6em;
+  margin: 0 0 12px;
+  font-size: clamp(1.25rem, 6vw, 2.25rem);
+  font-weight: 700;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  text-transform: uppercase;
+}
+
+.pattern .slot {
+  width: 1.2em;
+  text-align: center;
+  border-bottom: 3px solid var(--border);
+}
+
+.pattern.won .slot {
+  border-color: var(--correct);
+}
+
+.pattern.lost .slot.missed {
+  color: var(--wrong);
+}
+
+.message {
+  min-height: 1.5em;
+  margin: 0 0 16px;
+  font-weight: 600;
+}
+
+.message.won {
+  color: var(--correct);
+}
+
+.message.lost,
+.message.error {
+  color: var(--wrong);
+}
+
+.stats {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.stats div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 8px;
+}
+
+.stats dt {
+  color: var(--muted);
+}
+
+.stats dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-top: 16px;
+}
+
+@media (min-width: 640px) {
+  .keyboard {
+    grid-template-columns: repeat(13, 1fr);
+  }
+}
+
+.key {
+  min-width: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.key:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.key:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.key.correct {
+  background: var(--correct-bg);
+  border-color: var(--correct);
+  color: var(--correct);
+  opacity: 1;
+}
+
+.key.incorrect {
+  background: var(--wrong-bg);
+  border-color: var(--wrong);
+  color: var(--wrong);
+  opacity: 1;
+}

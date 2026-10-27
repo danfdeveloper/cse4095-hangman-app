@@ -94,6 +94,10 @@ def create_app(word_manager=None):
         code = err.name.lower().replace(" ", "_")
         return jsonify(error=err.description, code=code), err.code
 
+    @app.get("/")
+    def index():
+        return app.send_static_file("index.html")
+
     @app.post("/api/games")
     def create_game():
         body = _json_body()
