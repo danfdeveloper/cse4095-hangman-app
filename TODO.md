@@ -73,21 +73,21 @@ Invalid difficulty values are rejected cleanly.
 
 ### Tasks
 
-- [x] Create `server.py`.
-- [x] Configure Flask or FastAPI.
-- [x] Add in-memory storage for active games.
-- [x] Generate unique game IDs.
-- [x] Implement `POST /api/games`.
-- [x] Implement `GET /api/games/{game_id}`.
-- [x] Implement `POST /api/games/{game_id}/guess`.
-- [x] Validate difficulty input.
-- [x] Validate guess input.
-- [x] Return JSON responses consistently.
-- [x] Return appropriate HTTP status codes.
-- [x] Handle unknown game IDs.
-- [x] Handle malformed requests.
-- [x] Ensure the hidden word is never leaked during an active game.
-- [x] Add API tests.
+- [ ] Create `server.py`.
+- [ ] Configure Flask or FastAPI.
+- [ ] Add in-memory storage for active games.
+- [ ] Generate unique game IDs.
+- [ ] Implement `POST /api/games`.
+- [ ] Implement `GET /api/games/{game_id}`.
+- [ ] Implement `POST /api/games/{game_id}/guess`.
+- [ ] Validate difficulty input.
+- [ ] Validate guess input.
+- [ ] Return JSON responses consistently.
+- [ ] Return appropriate HTTP status codes.
+- [ ] Handle unknown game IDs.
+- [ ] Handle malformed requests.
+- [ ] Ensure the hidden word is never leaked during an active game.
+- [ ] Add API tests.
 
 ### Completion Criteria
 
@@ -101,20 +101,20 @@ The browser and terminal clients are not required for this phase.
 
 ### Tasks
 
-- [x] Create `terminal_client.py`.
-- [x] Connect to the Hangman server over HTTP.
-- [x] Let the user choose Easy, Medium, or Hard.
-- [x] Start a new game through the REST API.
-- [x] Display the masked word.
-- [x] Display guessed letters.
-- [x] Display incorrect letters.
-- [x] Display remaining incorrect guesses.
-- [x] Prompt for one letter at a time.
-- [x] Submit guesses through the REST API.
-- [x] Handle invalid input locally when appropriate.
-- [x] Handle server errors gracefully.
-- [x] Display win and loss messages.
-- [x] Allow the user to start another game.
+- [ ] Create `terminal_client.py`.
+- [ ] Connect to the Hangman server over HTTP.
+- [ ] Let the user choose Easy, Medium, or Hard.
+- [ ] Start a new game through the REST API.
+- [ ] Display the masked word.
+- [ ] Display guessed letters.
+- [ ] Display incorrect letters.
+- [ ] Display remaining incorrect guesses.
+- [ ] Prompt for one letter at a time.
+- [ ] Submit guesses through the REST API.
+- [ ] Handle invalid input locally when appropriate.
+- [ ] Handle server errors gracefully.
+- [ ] Display win and loss messages.
+- [ ] Allow the user to start another game.
 
 ### Completion Criteria
 
@@ -128,23 +128,23 @@ The terminal client contains no Hangman game logic beyond presentation and input
 
 ### Tasks
 
-- [x] Create `static/index.html`.
-- [x] Create `static/style.css`.
-- [x] Create `static/app.js`.
-- [x] Add a difficulty selector.
-- [x] Add a New Game button.
-- [x] Display the masked word.
-- [x] Display guessed letters.
-- [x] Display incorrect letters.
-- [x] Display remaining guesses.
-- [x] Add an on-screen alphabet keyboard.
-- [x] Disable already-guessed letters.
-- [x] Use `fetch()` to communicate with the REST API.
-- [x] Draw the Hangman state visually.
-- [x] Update the drawing after incorrect guesses.
-- [x] Display win and loss messages.
-- [x] Provide a restart/new-game flow.
-- [x] Make the interface usable on common desktop and mobile browser sizes.
+- [ ] Create `static/index.html`.
+- [ ] Create `static/style.css`.
+- [ ] Create `static/app.js`.
+- [ ] Add a difficulty selector.
+- [ ] Add a New Game button.
+- [ ] Display the masked word.
+- [ ] Display guessed letters.
+- [ ] Display incorrect letters.
+- [ ] Display remaining guesses.
+- [ ] Add an on-screen alphabet keyboard.
+- [ ] Disable already-guessed letters.
+- [ ] Use `fetch()` to communicate with the REST API.
+- [ ] Draw the Hangman state visually.
+- [ ] Update the drawing after incorrect guesses.
+- [ ] Display win and loss messages.
+- [ ] Provide a restart/new-game flow.
+- [ ] Make the interface usable on common desktop and mobile browser sizes.
 
 ### Completion Criteria
 
@@ -158,15 +158,15 @@ No hidden word is stored in browser-side JavaScript.
 
 ### Tasks
 
-- [x] Create `bot_examples/`.
-- [x] Implement `random_bot.py`.
-- [x] Implement `frequency_bot.py`.
-- [x] Define a common bot interaction pattern.
-- [x] Create a reusable HTTP client helper if useful.
-- [x] Make each bot capable of playing a complete game automatically.
-- [x] Print game results and summary statistics.
-- [x] Ensure bots use only information exposed through the REST API.
-- [x] Document how students can write their own bot.
+- [ ] Create `bot_examples/`.
+- [ ] Implement `random_bot.py`.
+- [ ] Implement `frequency_bot.py`.
+- [ ] Define a common bot interaction pattern.
+- [ ] Create a reusable HTTP client helper if useful.
+- [ ] Make each bot capable of playing a complete game automatically.
+- [ ] Print game results and summary statistics.
+- [ ] Ensure bots use only information exposed through the REST API.
+- [ ] Document how students can write their own bot.
 
 ### Completion Criteria
 
@@ -180,16 +180,16 @@ One bot should clearly outperform random guessing over many games.
 
 ### Tasks
 
-- [x] Implement `dictionary_bot.py`.
-- [x] Load an allowed training dictionary.
-- [x] Filter candidate words by current pattern.
-- [x] Remove candidates containing known incorrect letters.
-- [x] Respect known letter positions.
-- [x] Track letters already guessed.
-- [x] Compute candidate-letter frequencies.
-- [x] Choose the next letter using the remaining candidates.
-- [x] Fall back to global letter frequency if no candidates remain.
-- [x] Compare its performance against the random and frequency bots.
+- [ ] Implement `dictionary_bot.py`.
+- [ ] Load an allowed training dictionary.
+- [ ] Filter candidate words by current pattern.
+- [ ] Remove candidates containing known incorrect letters.
+- [ ] Respect known letter positions.
+- [ ] Track letters already guessed.
+- [ ] Compute candidate-letter frequencies.
+- [ ] Choose the next letter using the remaining candidates.
+- [ ] Fall back to global letter frequency if no candidates remain.
+- [ ] Compare its performance against the random and frequency bots.
 
 ### Completion Criteria
 
@@ -201,21 +201,21 @@ The dictionary bot completes games without server-side knowledge and demonstrate
 
 ### Tasks
 
-- [x] Separate normal game play from official evaluation mode.
-- [x] Add an evaluation-session model.
-- [x] Generate a unique evaluation ID.
-- [x] Define the number of evaluation games.
-- [x] Support evaluation across Easy, Medium, and Hard words.
-- [x] Ensure the server controls all evaluation words.
-- [x] Prevent skipping or restarting unfavorable evaluation games.
-- [x] Require games to be played in the intended sequence.
-- [x] Record wins and losses.
-- [x] Record total guesses.
-- [x] Record incorrect guesses.
-- [x] Record remaining guesses after wins.
-- [x] Record per-game results.
-- [x] Add evaluation API endpoints.
-- [x] Add tests for evaluation integrity.
+- [ ] Separate normal game play from official evaluation mode.
+- [ ] Add an evaluation-session model.
+- [ ] Generate a unique evaluation ID.
+- [ ] Define the number of evaluation games.
+- [ ] Support evaluation across Easy, Medium, and Hard words.
+- [ ] Ensure the server controls all evaluation words.
+- [ ] Prevent skipping or restarting unfavorable evaluation games.
+- [ ] Require games to be played in the intended sequence.
+- [ ] Record wins and losses.
+- [ ] Record total guesses.
+- [ ] Record incorrect guesses.
+- [ ] Record remaining guesses after wins.
+- [ ] Record per-game results.
+- [ ] Add evaluation API endpoints.
+- [ ] Add tests for evaluation integrity.
 
 ### Completion Criteria
 
@@ -229,16 +229,16 @@ A client cannot choose or inspect the hidden evaluation words.
 
 ### Tasks
 
-- [x] Define the official scoring formula.
-- [x] Make wins the primary performance signal.
-- [x] Use guess efficiency as a secondary signal or tiebreaker.
-- [x] Define how losses are scored.
-- [x] Define how invalid guesses affect scoring.
-- [x] Define how duplicate guesses affect scoring.
-- [x] Define how abandoned games affect scoring.
-- [x] Record total score for each evaluation.
-- [x] Add tests for scoring calculations.
-- [x] Document the scoring rules clearly for students.
+- [ ] Define the official scoring formula.
+- [ ] Make wins the primary performance signal.
+- [ ] Use guess efficiency as a secondary signal or tiebreaker.
+- [ ] Define how losses are scored.
+- [ ] Define how invalid guesses affect scoring.
+- [ ] Define how duplicate guesses affect scoring.
+- [ ] Define how abandoned games affect scoring.
+- [ ] Record total score for each evaluation.
+- [ ] Add tests for scoring calculations.
+- [ ] Document the scoring rules clearly for students.
 
 ### Completion Criteria
 
@@ -252,19 +252,19 @@ The scoring formula is simple enough to explain and verify independently.
 
 ### Tasks
 
-- [x] Define a leaderboard record format.
-- [x] Store participant or bot name.
-- [x] Store total games.
-- [x] Store games won.
-- [x] Store win rate.
-- [x] Store average guesses.
-- [x] Store average remaining guesses on wins.
-- [x] Store total score.
-- [x] Rank results consistently.
-- [x] Add a leaderboard API endpoint.
-- [x] Add a browser leaderboard view.
-- [x] Display rankings in the terminal if useful.
-- [x] Decide whether leaderboard data should persist across server restarts.
+- [ ] Define a leaderboard record format.
+- [ ] Store participant or bot name.
+- [ ] Store total games.
+- [ ] Store games won.
+- [ ] Store win rate.
+- [ ] Store average guesses.
+- [ ] Store average remaining guesses on wins.
+- [ ] Store total score.
+- [ ] Rank results consistently.
+- [ ] Add a leaderboard API endpoint.
+- [ ] Add a browser leaderboard view.
+- [ ] Display rankings in the terminal if useful.
+- [ ] Decide whether leaderboard data should persist across server restarts.
 
 ### Completion Criteria
 
@@ -276,17 +276,17 @@ Completed evaluation runs can be ranked automatically and displayed consistently
 
 ### Tasks
 
-- [x] Ensure game state responses never contain the answer while status is `playing`.
-- [x] Ensure evaluation words are server-controlled.
-- [x] Prevent clients from requesting arbitrary evaluation game IDs.
-- [x] Reject malformed or unauthorized evaluation requests.
-- [x] Add optional rate limiting if needed.
-- [x] Add optional per-request timeout rules.
-- [x] Log evaluation actions.
-- [x] Detect repeated invalid guesses.
-- [x] Define behavior for disconnected clients.
-- [x] Define behavior for incomplete evaluations.
-- [x] Keep training word lists separate from hidden evaluation lists if desired.
+- [ ] Ensure game state responses never contain the answer while status is `playing`.
+- [ ] Ensure evaluation words are server-controlled.
+- [ ] Prevent clients from requesting arbitrary evaluation game IDs.
+- [ ] Reject malformed or unauthorized evaluation requests.
+- [ ] Add optional rate limiting if needed.
+- [ ] Add optional per-request timeout rules.
+- [ ] Log evaluation actions.
+- [ ] Detect repeated invalid guesses.
+- [ ] Define behavior for disconnected clients.
+- [ ] Define behavior for incomplete evaluations.
+- [ ] Keep training word lists separate from hidden evaluation lists if desired.
 
 ### Completion Criteria
 
@@ -298,17 +298,17 @@ A student can solve the assignment using the documented API, but cannot gain the
 
 ### Tasks
 
-- [x] Define a game-log format.
-- [x] Record game ID.
-- [x] Record difficulty.
-- [x] Record each guess in order.
-- [x] Record whether each guess was correct.
-- [x] Record pattern after each guess.
-- [x] Record remaining guesses after each move.
-- [x] Record final outcome.
-- [x] Add optional timestamps.
-- [x] Add a replay utility or endpoint.
-- [x] Ensure logs do not expose hidden evaluation words before evaluation completion.
+- [ ] Define a game-log format.
+- [ ] Record game ID.
+- [ ] Record difficulty.
+- [ ] Record each guess in order.
+- [ ] Record whether each guess was correct.
+- [ ] Record pattern after each guess.
+- [ ] Record remaining guesses after each move.
+- [ ] Record final outcome.
+- [ ] Add optional timestamps.
+- [ ] Add a replay utility or endpoint.
+- [ ] Ensure logs do not expose hidden evaluation words before evaluation completion.
 
 ### Completion Criteria
 
@@ -320,23 +320,23 @@ An instructor can inspect or replay a completed game step by step for debugging 
 
 ### Tasks
 
-- [x] Complete unit tests for `HangmanGame`.
-- [x] Complete tests for word loading.
-- [x] Complete REST API tests.
-- [x] Test duplicate guesses.
-- [x] Test invalid letters.
-- [x] Test invalid difficulty.
-- [x] Test missing game IDs.
-- [x] Test win paths.
-- [x] Test loss paths.
-- [x] Test answer disclosure rules.
-- [x] Test terminal-client integration.
-- [x] Test browser-client integration.
-- [x] Test automated bots.
-- [x] Test evaluation sessions.
-- [x] Test scoring.
-- [x] Test leaderboard ordering.
-- [x] Add an end-to-end automated test.
+- [ ] Complete unit tests for `HangmanGame`.
+- [ ] Complete tests for word loading.
+- [ ] Complete REST API tests.
+- [ ] Test duplicate guesses.
+- [ ] Test invalid letters.
+- [ ] Test invalid difficulty.
+- [ ] Test missing game IDs.
+- [ ] Test win paths.
+- [ ] Test loss paths.
+- [ ] Test answer disclosure rules.
+- [ ] Test terminal-client integration.
+- [ ] Test browser-client integration.
+- [ ] Test automated bots.
+- [ ] Test evaluation sessions.
+- [ ] Test scoring.
+- [ ] Test leaderboard ordering.
+- [ ] Add an end-to-end automated test.
 
 ### Completion Criteria
 
@@ -348,19 +348,19 @@ The major user flows and failure cases are covered by automated tests.
 
 ### Tasks
 
-- [x] Create or update `README.md`.
-- [x] Document installation.
-- [x] Document how to start the server.
-- [x] Document how to use the browser client.
-- [x] Document how to use the terminal client.
-- [x] Document the REST API.
-- [x] Document how to write a student bot.
-- [x] Provide example requests and responses.
-- [x] Document scoring.
-- [x] Document evaluation rules.
-- [x] Document leaderboard behavior.
-- [x] Add dependency information such as `requirements.txt` or `pyproject.toml`.
-- [x] Verify that a fresh installation works from the documented instructions.
+- [ ] Create or update `README.md`.
+- [ ] Document installation.
+- [ ] Document how to start the server.
+- [ ] Document how to use the browser client.
+- [ ] Document how to use the terminal client.
+- [ ] Document the REST API.
+- [ ] Document how to write a student bot.
+- [ ] Provide example requests and responses.
+- [ ] Document scoring.
+- [ ] Document evaluation rules.
+- [ ] Document leaderboard behavior.
+- [ ] Add dependency information such as `requirements.txt` or `pyproject.toml`.
+- [ ] Verify that a fresh installation works from the documented instructions.
 
 ### Completion Criteria
 
